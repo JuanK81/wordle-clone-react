@@ -1,0 +1,11 @@
+.basic-container {
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+  &_title {
+    color: #fff;
+    font-size: 6rem;
+  }
+}

@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  transition: all 0.2s;
+  scrollbar-width: none; }
+  @media only screen and (max-width: 90em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  width: 100%;
+  background-color: #293550;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.6; }
+  body::-webkit-scrollbar {
+    display: none; }
+    @media only screen and (max-width: 57em) {
+      body::-webkit-scrollbar {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; } }
+  body span {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: none;
+    letter-spacing: 0.5rem; }
+    @media only screen and (max-width: 57em) {
+      body span {
+        font-size: 1rem;
+        letter-spacing: 0.2rem; } }
+
+p {
+  color: #fff;
+  font-size: 3rem; }
+
+button {
+  cursor: pointer; }
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.basic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .basic-container_title {
+    color: #fff;
+    font-size: 6rem; }
