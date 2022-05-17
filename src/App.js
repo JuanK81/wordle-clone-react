@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="basic-container">
       <header className="App-header">
-        <h1 className="basic-container_title">ReactWordle Clone</h1>
+        <h1 className="basic-container_title">React Wordle Clone</h1>
         {solution && <Wordle solution={solution} />}
       </header>
     </div>

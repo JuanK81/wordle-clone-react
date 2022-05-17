@@ -63,3 +63,30 @@ body {
   .basic-container_title {
     color: #fff;
     font-size: 6rem; }
+
+.row {
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+
+.letter-box {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border: .1rem solid grey;
+  border-radius: .3rem;
+  margin: .4rem;
+  text-align: center;
+  line-height: 6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em; }
+  .letter-box_green {
+    background-color: green;
+    border-color: green; }
+  .letter-box_yellow {
+    background-color: #d4b501;
+    border-color: #d4b501; }
+  .letter-box_grey {
+    background-color: grey;
+    border-color: grey; }

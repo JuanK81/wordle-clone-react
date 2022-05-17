@@ -1,0 +1,34 @@
+.row {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-box {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    border: .1rem solid grey;
+    border-radius: .3rem;
+    margin: .4rem;
+    text-align: center;
+    line-height: 6rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.5em;
+
+    &_green {
+        background-color: green;
+        border-color: green;
+    }
+
+    &_yellow {
+        background-color: rgb(212, 181, 1);
+        border-color: rgb(212, 181, 1);
+    }
+
+    &_grey {
+        background-color: grey;
+        border-color: grey;
+    }
+}

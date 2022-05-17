@@ -3,7 +3,7 @@ import { useState } from 'react';
 const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
-  const [guesses, setGuesses] = useState([]);
+  const [guesses, setGuesses] = useState([...Array(6)]);
   const [history, serHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
 
@@ -24,7 +24,7 @@ const useWordle = (solution) => {
     //find yellow letters
     formattedGuess.forEach((l, i) => {
       if (solutionArray.includes(l.key) && l.color !== 'green') {
-        formattedGuess[i] = 'yellow';
+        formattedGuess[i].color = 'yellow';
         solutionArray[solutionArray.indexOf(l.key)] = null;
       }
     });
@@ -32,7 +32,28 @@ const useWordle = (solution) => {
     return formattedGuess;
   };
 
-  const addNewGuess = () => {};
+  const addNewGuess = (formattedGuess) => {
+
+    if (currentGuess === solution) {
+      setIsCorrect(true);
+    }
+    setGuesses((prevGuesses) => {
+
+      let newGuesses = [...prevGuesses];
+      newGuesses[turn] = formattedGuess;
+      return newGuesses;
+    });
+
+    serHistory((pprevHistory) => {
+        return [...pprevHistory, currentGuess];
+    });
+
+    setTurn((prevTurn) => {
+        return prevTurn + 1;
+    });
+
+    setCurrentGuess('')
+  };
 
   const handleKeyup = ({ key }) => {
     if (key === 'Enter') {
@@ -52,7 +73,7 @@ const useWordle = (solution) => {
       }
 
       const formatted = formatGuess();
-      console.log('formatted',formatted);
+      addNewGuess(formatted);
     }
 
     if (key === 'Backspace') {
@@ -70,7 +91,6 @@ const useWordle = (solution) => {
       }
     }
   };
-
 
   return { turn, currentGuess, guesses, isCorrect, handleKeyup };
 };
