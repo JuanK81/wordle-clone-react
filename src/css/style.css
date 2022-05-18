@@ -32,7 +32,7 @@ body {
         right: 0;
         bottom: 0; } }
   body span {
-    color: rgba(255, 255, 255, 0.2);
+    color: #5b5b5b;
     font-size: 1.5rem;
     font-weight: 400;
     text-shadow: none;
@@ -54,6 +54,36 @@ body {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.keypad {
+  max-width: 50rem;
+  margin: 2rem auto; }
+  .keypad_letter {
+    margin: 0.5rem;
+    width: 4rem;
+    height: 5rem;
+    background: #b5d6dd;
+    display: inline-block;
+    border-radius: 0.6rem;
+    line-height: 5rem; }
+    .keypad_letter p {
+      color: #293550;
+      font-weight: 900; }
+    .keypad_letter--green {
+      background-color: green;
+      transition: all 0.3s ease-in; }
+      .keypad_letter--green p {
+        color: #fff; }
+    .keypad_letter--yellow {
+      background-color: #fda312;
+      transition: all 0.3s ease-in; }
+      .keypad_letter--yellow p {
+        color: #fff; }
+    .keypad_letter--grey {
+      background-color: grey;
+      transition: all 0.3s ease-in; }
+      .keypad_letter--grey p {
+        color: #fff; }
 
 .basic-container {
   display: flex;
@@ -89,8 +119,8 @@ body {
     --border-color: green;
     animation: flip 0.5s ease forwards; }
   .letter-box_yellow {
-    --background-color: rgb(212, 181, 1);
-    --border-color: rgb(212, 181, 1);
+    --background-color: #fda312;
+    --border-color: #fda312;
     animation: flip 0.5s ease forwards; }
   .letter-box_grey {
     --background-color: grey;
@@ -126,7 +156,7 @@ body {
 @keyframes bounce {
   0% {
     transform: scale(1);
-    border-color: #ddd; }
+    border-color: #d6d6d6; }
   50% {
     transform: scale(1.2); }
   100% {

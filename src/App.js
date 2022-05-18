@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './css/style.css';
 
 import Wordle from './components/Wordle';
-import Keypad from './components/Keypad';
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -23,7 +22,7 @@ function App() {
 
       {solution && <Wordle solution={solution} />}
 
-      <Keypad />
+      
     </div>
 
     /* 

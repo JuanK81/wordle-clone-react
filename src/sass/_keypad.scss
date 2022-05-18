@@ -1,3 +1,46 @@
-p {
-    color: #fff;
+.keypad {
+  max-width: 50rem;
+  margin: 2rem auto;
+
+  &_letter {
+    margin: 0.5rem;
+    width: 4rem;
+    height: 5rem;
+    background: $color-primary-light;
+    display: inline-block;
+    border-radius: 0.6rem;
+    line-height: 5rem;
+
+    p {
+      color: $color-primary;
+      font-weight: 900;
+    }
+
+    &--green {
+      background-color: green;
+      transition: all 0.3s ease-in;
+
+      p {
+        color: #fff;
+      }
+    }
+
+    &--yellow {
+      background-color: #fda312;
+      transition: all 0.3s ease-in;
+
+      p {
+        color: #fff;
+      }
+    }
+
+    &--grey {
+      background-color: grey;
+      transition: all 0.3s ease-in;
+
+      p {
+        color: #fff;
+      }
+    }
+  }
 }
