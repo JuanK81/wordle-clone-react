@@ -85,7 +85,35 @@ body {
       .keypad_letter--grey p {
         color: #fff; }
 
+.modal {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 53, 80, 0.6);
+  z-index: 100; }
+  .modal_container {
+    max-width: 50rem;
+    padding: 4rem;
+    margin: 10% auto;
+    box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.8);
+    border-radius: 3rem;
+    border: 0.3rem solid #fda312;
+    background-color: #293550; }
+  .modal_title {
+    font-size: 6rem; }
+  .modal .win {
+    color: #fff; }
+  .modal .fail {
+    color: #AD2831; }
+  .modal .solution {
+    text-transform: uppercase;
+    letter-spacing: .2rem; }
+
 .basic-container {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
