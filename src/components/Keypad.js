@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 
 
 
-const Keypad = ({ usedKeys }) => {
+const Keypad = ({ usedKeys, lang }) => {
 
     const [ letters, setLetters ] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:3001/letters')
-        .then(res => res.json())
-        .then(json => {
-            setLetters(json)
-        })
-    }, [])
+        fetch(`http://localhost:3001/letters-${lang}`)
+          .then((res) => res.json())
+          .then((json) => {
+            setLetters(json);
+          });
+    }, [lang])
 
     return (
       <div className='keypad'>

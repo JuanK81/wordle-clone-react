@@ -5,7 +5,8 @@ import Grid from './Grid';
 import Keypad from './Keypad';
 import Modal from './Modal';
 
-export default function Wordle({ solution }) {
+export default function Wordle({ solution, lang }) {
+
   const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } =
     useWordle(solution);
   const [showModal, setShowModal] = useState(false);
@@ -33,15 +34,18 @@ export default function Wordle({ solution }) {
   //   console.log(guesses, turn, isCorrect);
   // }, [guesses, turn, isCorrect]);
 
+  
+
   return (
     <div>
       {showModal && (
         <Modal isCorrect={isCorrect} turn={turn} solution={solution} />
       )}
-      <h1 className="basic-container_title"> React Wordle Clone</h1>
-      <p> Solution is: {solution}</p>
+      {/* <h1 className="basic-container_title"> React Wordle Clone</h1> */}
+      
+      {/* <p> Solution is: {solution}</p> */}
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-      <Keypad usedKeys={usedKeys} />
+      <Keypad usedKeys={usedKeys}  lang={lang}/>
     </div>
   );
 }

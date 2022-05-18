@@ -17,6 +17,7 @@ const Modal = ({ isCorrect, turn, solution }) => {
                     <p>Better luck next time.</p>
                 </div>
             )}
+            
         </div>
     )
 };

@@ -1,28 +1,75 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,  } from 'react';
 import './css/style.css';
 
 import Wordle from './components/Wordle';
+import Button from './components/Button';
+
 
 function App() {
   const [solution, setSolution] = useState(null);
+  const [lang, setLang] = useState('es');
 
   useEffect(() => {
-    fetch('http://localhost:3001/solutions')
-      .then((res) => res.json())
-      .then((json) => {
-        // randon solution
-        const randomSolution = json[Math.floor(Math.random() * json.length)];
-        setSolution(randomSolution.word);
-      });
-  }, [setSolution]);
+    if (lang === 'es') {
+      const fetchRandomWordEs = async () => {
+        const response = await fetch(
+          'https://palabras-aleatorias-public-api.herokuapp.com/random-by-length?length=5'
+        );
+
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+
+        const responseData = await response.json();
+
+        setSolution(responseData.body.Word);
+      };
+
+      fetchRandomWordEs()
+        .then()
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    if (lang === 'en') {
+      const fetchRandomWordEn = async () => {
+        const response = await fetch(
+          'https://random-word-api.herokuapp.com/word?length=5'
+        );
+
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+
+        const responseData = await response.json();
+
+        setSolution(responseData);
+      };
+
+      fetchRandomWordEn()
+        .then()
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [lang, setLang]);
+
+  const changeLangHandler = () => {
+    if (lang === 'en') {
+      setLang('es')
+    } else {
+      setLang('en')
+    };
+    console.log(lang)
+  };
+
   return (
     <div className="basic-container">
-
-      {/* <h1 className="basic-container_title">React Wordle Clone</h1> */}
-
-      {solution && <Wordle solution={solution} />}
-
-      
+      <h1 className="basic-container_title"> React Wordle Clone</h1>
+      {lang === 'en' ? <p>EN</p> : <p>ES</p>}
+      <Button text={lang === 'en' ? 'Cambiar idioma' : 'Change languaje'} onClick={changeLangHandler} />
+      {solution && <Wordle solution={solution} lang={lang}/>}
     </div>
 
     /* 
