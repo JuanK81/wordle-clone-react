@@ -57,6 +57,7 @@ body {
 
 .basic-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center; }
@@ -68,25 +69,66 @@ body {
   text-align: center;
   display: flex;
   justify-content: center; }
+  .row_current > div.filled {
+    animation: bounce .15s ease-in-out forwards; }
 
 .letter-box {
   display: block;
   width: 6rem;
   height: 6rem;
-  border: .1rem solid grey;
-  border-radius: .3rem;
-  margin: .4rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.3rem;
+  margin: 0.4rem;
   text-align: center;
   line-height: 6rem;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2.5em; }
   .letter-box_green {
-    background-color: green;
-    border-color: green; }
+    --background-color: green;
+    --border-color: green;
+    animation: flip 0.5s ease forwards; }
   .letter-box_yellow {
-    background-color: #d4b501;
-    border-color: #d4b501; }
+    --background-color: rgb(212, 181, 1);
+    --border-color: rgb(212, 181, 1);
+    animation: flip 0.5s ease forwards; }
   .letter-box_grey {
-    background-color: grey;
+    --background-color: grey;
+    --border-color: grey;
+    animation: flip 0.5s ease forwards; }
+  .letter-box:nth-child(2) {
+    animation-delay: 0.2s; }
+  .letter-box:nth-child(3) {
+    animation-delay: 0.4s; }
+  .letter-box:nth-child(4) {
+    animation-delay: 0.6s; }
+  .letter-box:nth-child(5) {
+    animation-delay: 0.8s; }
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+    background-color: transparent;
     border-color: grey; }
+  45% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+    border-color: grey; }
+  55% {
+    transform: rotateX(90deg);
+    background-color: var(--background-color);
+    border-color: var(--border-color); }
+  100% {
+    transform: rotateX(0);
+    background-color: var(--background-color);
+    border-color: var(--border-color); } }
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    border-color: #ddd; }
+  50% {
+    transform: scale(1.2); }
+  100% {
+    transform: scale(1);
+    border-color: grey; } }

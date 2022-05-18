@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './css/style.css';
 
 import Wordle from './components/Wordle';
+import Keypad from './components/Keypad';
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -13,15 +14,16 @@ function App() {
         // randon solution
         const randomSolution = json[Math.floor(Math.random() * json.length)];
         setSolution(randomSolution.word);
-        
       });
   }, [setSolution]);
   return (
     <div className="basic-container">
-      <header className="App-header">
-        <h1 className="basic-container_title">React Wordle Clone</h1>
-        {solution && <Wordle solution={solution} />}
-      </header>
+
+      <h1 className="basic-container_title">React Wordle Clone</h1>
+
+      {solution && <Wordle solution={solution} />}
+
+      <Keypad />
     </div>
 
     /* 

@@ -4,8 +4,8 @@ const Row = ({ guess, currentGuess }) => {
       <div className="row past">
         {guess.map((l, i) => {
           return (
-            <div key={i} className="letter-box">
-              <p className={`letter-box_${l.color}`}>{l.key}</p>
+            <div key={i} className={`letter-box letter-box_${l.color}`}>
+              <p>{l.key}</p>
             </div>
           );
         })}
@@ -17,11 +17,11 @@ const Row = ({ guess, currentGuess }) => {
     let letters = currentGuess.split('');
 
     return (
-      <div className="row current">
+      <div className="row row_current">
         {letters.map((letter, i) => {
           return (
             <div key={i} className="letter-box filled">
-              {letter}
+              <p className="letter-box_letter">{letter}</p>
             </div>
           );
         })}

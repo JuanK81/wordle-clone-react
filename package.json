@@ -26,7 +26,8 @@
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/style.comp.css -o src/css/style.prefix.css",
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
-    "start:sass": "npm-run-all --parallel watch:sass"
+    "start:sass": "npm-run-all --parallel watch:sass",
+    "start:json": "json-server ./data/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
