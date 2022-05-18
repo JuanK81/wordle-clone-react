@@ -22,7 +22,22 @@ function App() {
 
         const responseData = await response.json();
 
-        setSolution(responseData.body.Word);
+
+        console.log('con acentos', responseData.body.Word);
+        console.log(
+          'sin acentos',
+          responseData.body.Word.normalize('NFD').replace(
+            /[\u0300-\u036f]/g,
+            ''
+          )
+        );
+        // setSolution(responseData.body.Word);
+        setSolution(
+          responseData.body.Word.normalize('NFD').replace(
+            /[\u0300-\u036f]/g,
+            ''
+          )
+        );
       };
 
       fetchRandomWordEs()
