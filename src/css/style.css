@@ -56,7 +56,7 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 .button-big {
-  border: 0.3rem solid #fda312;
+  border: none;
   background-color: transparent;
   color: #fda312;
   padding: .8rem .8rem;
@@ -150,6 +150,15 @@ body {
     color: #fff;
     font-size: 6rem; }
 
+.language-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .language-container .icon {
+    width: 5.3rem;
+    height: 5.3rem;
+    aspect-ratio: 1; }
+
 .row {
   text-align: center;
   display: flex;
@@ -217,3 +226,11 @@ body {
   100% {
     transform: scale(1);
     border-color: grey; } }
+
+.select {
+  display: block;
+  text-align: center;
+  border-radius: .2rem;
+  width: 6rem;
+  height: 5rem;
+  background-color: #b5d6dd; }

@@ -1,9 +1,10 @@
-import { useEffect, useState,  } from 'react';
+import { useEffect, useState } from 'react';
 import './css/style.css';
 
 import Wordle from './components/Wordle';
 import Button from './components/Button';
 
+import langIcon from './assets/language-white-small.png';
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -21,7 +22,6 @@ function App() {
         }
 
         const responseData = await response.json();
-
 
         console.log('con acentos', responseData.body.Word);
         console.log(
@@ -72,19 +72,42 @@ function App() {
 
   const changeLangHandler = () => {
     if (lang === 'en') {
-      setLang('es')
+      setLang('es');
     } else {
-      setLang('en')
-    };
-    console.log(lang)
+      setLang('en');
+    }
+    console.log(lang);
   };
 
   return (
     <div className="basic-container">
       <h1 className="basic-container_title"> React Wordle Clone</h1>
-      {lang === 'en' ? <p>EN</p> : <p>ES</p>}
-      <Button text={lang === 'en' ? 'Cambiar idioma' : 'Change languaje'} onClick={changeLangHandler} />
-      {solution && <Wordle solution={solution} lang={lang}/>}
+
+      {/* <div className="language-container">
+        {lang === 'en' ? <p>EN</p> : <p>ES</p>}
+        <Button
+          text={<img className="icon" src={langIcon} alt="" />}
+          onClick={changeLangHandler}
+        />
+      </div> */}
+
+      <div className="language-container">
+        <Button
+          text={<img className="icon" src={langIcon} alt="" />}
+          onClick={changeLangHandler}
+        />
+        {lang === 'en' ? <p>EN</p> : <p>ES</p>}
+      </div>
+      {/* <div className="language-container">
+        <img className="icon" src={langIcon} alt="" />
+        {lang === 'en' ? <p>EN</p> : <p>ES</p>}
+        <Button
+          text={lang === 'en' ? 'Cambiar idioma' : 'Change language'}
+          onClick={changeLangHandler}
+        />
+      </div> */}
+
+      {solution && <Wordle solution={solution} lang={lang} />}
     </div>
 
     /* 
