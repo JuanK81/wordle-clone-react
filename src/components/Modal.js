@@ -1,6 +1,6 @@
 import Button from './Button';
 
-const Modal = ({ isCorrect, turn, solution, lang }) => {
+const Modal = ({ isCorrect, turn, solution, lang, restartHandler }) => {
   let guesses = '';
   let intentos = '';
   let textBtn = '';
@@ -19,9 +19,9 @@ const Modal = ({ isCorrect, turn, solution, lang }) => {
     textBtn = 'Jugar otra';
   }
 
-  const restartHandler = () => {
-    window.location.reload(false);
-  };
+  // const restartHandler = () => {
+  //   window.location.reload(false);
+  // };
 
   return (
     <div className="modal">

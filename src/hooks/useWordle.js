@@ -4,7 +4,7 @@ const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
   const [guesses, setGuesses] = useState([...Array(6)]);
-  const [history, serHistory] = useState([]);
+  const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
 
@@ -43,7 +43,7 @@ const useWordle = (solution) => {
       return newGuesses;
     });
 
-    serHistory((prevHistory) => {
+    setHistory((prevHistory) => {
       return [...prevHistory, currentGuess];
     });
 
@@ -136,6 +136,24 @@ const useWordle = (solution) => {
     }
   };
 
+  const resetGame = 'reset ya, hombre'
+//   () => {
+//     console.log('reset'
+//     ,turn
+// ,currentGuess
+// ,guesses
+// ,history
+// ,isCorrect
+// ,usedKeys
+//     )
+//     // setTurn(0)
+//     // setCurrentGuess('');
+//     // setGuesses([...Array(6)]);
+//     // setHistory([]);
+//     // setIsCorrect(false);
+//     // setUsedKeys({});
+//   };
+
   return {
     turn,
     currentGuess,
@@ -144,6 +162,7 @@ const useWordle = (solution) => {
     handleKeyup,
     handleBackspace,
     usedKeys,
+    resetGame,
   };
 };
 
