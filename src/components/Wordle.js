@@ -7,13 +7,21 @@ import Modal from './Modal';
 
 export default function Wordle({ solution, lang }) {
 
-  const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } =
-    useWordle(solution);
+  const {
+    currentGuess,
+    handleKeyup,
+    handleBackspace,
+    guesses,
+    isCorrect,
+    turn,
+    usedKeys,
+  } = useWordle(solution);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('keyup', handleKeyup);
-
+    window.addEventListener('keyup', handleBackspace);
+    window.addEventListener('keypress', handleKeyup);
+   
     if (isCorrect) {
       console.log('you win!');
       setTimeout(() => setShowModal(true), 2000);
@@ -26,20 +34,15 @@ export default function Wordle({ solution, lang }) {
     }
 
     return () => {
-      window.removeEventListener('keyup', handleKeyup);
+      window.removeEventListener('keyup', handleBackspace);
+      window.removeEventListener('keypress', handleKeyup);
     };
-  }, [handleKeyup, isCorrect, turn]);
-
-  // useEffect(() => {
-  //   console.log(guesses, turn, isCorrect);
-  // }, [guesses, turn, isCorrect]);
-
-  
+  }, [handleKeyup, handleBackspace, isCorrect, turn]);
 
   return (
     <div>
       {showModal && (
-        <Modal isCorrect={isCorrect} turn={turn} solution={solution} />
+        <Modal isCorrect={isCorrect} turn={turn} solution={solution} lang={lang} />
       )}
       {/* <h1 className="basic-container_title"> React Wordle Clone</h1> */}
       

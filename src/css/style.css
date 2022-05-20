@@ -56,7 +56,7 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 .button-big {
-  border: none;
+  border: 0.1rem solid #fda312;
   background-color: transparent;
   color: #fda312;
   padding: .8rem .8rem;
@@ -79,8 +79,11 @@ body {
     color: #fda312;
     font-weight: 400;
     border: 0.6rem solid rgba(253, 163, 18, 0.7);
-    background-color: rgba(173, 40, 49, 0.3);
+    background-color: rgba(230, 0, 15, 0.3);
     cursor: not-allowed; }
+
+.no-border {
+  border: none; }
 
 .keypad {
   max-width: 50rem;
@@ -134,7 +137,7 @@ body {
   .modal .win {
     color: #fff; }
   .modal .fail {
-    color: #AD2831; }
+    color: #e6000f; }
   .modal .solution {
     text-transform: uppercase;
     letter-spacing: .2rem; }

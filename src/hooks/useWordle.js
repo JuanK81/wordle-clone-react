@@ -34,27 +34,25 @@ const useWordle = (solution) => {
   };
 
   const addNewGuess = (formattedGuess) => {
-
     if (currentGuess === solution) {
       setIsCorrect(true);
     }
     setGuesses((prevGuesses) => {
-
       let newGuesses = [...prevGuesses];
       newGuesses[turn] = formattedGuess;
       return newGuesses;
     });
 
-    serHistory((pprevHistory) => {
-        return [...pprevHistory, currentGuess];
+    serHistory((prevHistory) => {
+      return [...prevHistory, currentGuess];
     });
 
     setTurn((prevTurn) => {
-        return prevTurn + 1;
+      return prevTurn + 1;
     });
 
     setUsedKeys((prevUsedKeys) => {
-      let newKeys = {...prevUsedKeys};
+      let newKeys = { ...prevUsedKeys };
 
       formattedGuess.forEach((l) => {
         const currentColor = newKeys[l.key];
@@ -62,22 +60,26 @@ const useWordle = (solution) => {
         if (l.color === 'green') {
           newKeys[l.key] = 'green';
           return;
-        };
+        }
 
         if (l.color === 'yellow' && currentColor !== 'green') {
           newKeys[l.key] = 'yellow';
           return;
-        };
+        }
 
-        if (l.color === 'grey' && currentColor !== 'green' && currentColor !== 'yellow') {
+        if (
+          l.color === 'grey' &&
+          currentColor !== 'green' &&
+          currentColor !== 'yellow'
+        ) {
           newKeys[l.key] = 'grey';
           return;
-        };
+        }
       });
 
       return newKeys;
     });
-    setCurrentGuess('')
+    setCurrentGuess('');
   };
 
   const handleKeyup = ({ key }) => {
@@ -108,16 +110,41 @@ const useWordle = (solution) => {
       return;
     }
 
-    if (/^[A-Za-z]$/.test(key)) {
+    if (key === 'Shift') {
+      console.log('shift key', key);
+    }
+
+    if (/^[A-Za-z\u00f1\u00d1\Shift\Dead]$/.test(key)) {
       if (currentGuess.length < 5) {
         setCurrentGuess((prev) => {
+          console.log(key);
           return prev + key;
         });
       }
     }
   };
 
-  return { turn, currentGuess, guesses, isCorrect, handleKeyup, usedKeys };
+  const handleBackspace = ({ key }) => {
+    if (key === 'Backspace') {
+      console.log('Backspace');
+      setCurrentGuess((prev) => {
+        return prev.slice(0, -1);
+      });
+      return;
+    } else {
+      return;
+    }
+  };
+
+  return {
+    turn,
+    currentGuess,
+    guesses,
+    isCorrect,
+    handleKeyup,
+    handleBackspace,
+    usedKeys,
+  };
 };
 
 export default useWordle;
