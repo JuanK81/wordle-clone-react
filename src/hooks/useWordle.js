@@ -135,24 +135,7 @@ const useWordle = (solution) => {
       return;
     }
   };
-
-  const resetGame = 'reset ya, hombre'
-//   () => {
-//     console.log('reset'
-//     ,turn
-// ,currentGuess
-// ,guesses
-// ,history
-// ,isCorrect
-// ,usedKeys
-//     )
-//     // setTurn(0)
-//     // setCurrentGuess('');
-//     // setGuesses([...Array(6)]);
-//     // setHistory([]);
-//     // setIsCorrect(false);
-//     // setUsedKeys({});
-//   };
+  const log = () => console.log('something!')
 
   return {
     turn,
@@ -162,7 +145,7 @@ const useWordle = (solution) => {
     handleKeyup,
     handleBackspace,
     usedKeys,
-    resetGame,
+    log
   };
 };
 

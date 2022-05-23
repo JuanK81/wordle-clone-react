@@ -5,7 +5,7 @@ import Grid from './Grid';
 import Keypad from './Keypad';
 import Modal from './Modal';
 
-export default function Wordle({ solution, lang, resetGame }) {
+export default function Wordle({ solution, lang, log }) {
 
   const {
     currentGuess,
@@ -39,11 +39,7 @@ export default function Wordle({ solution, lang, resetGame }) {
     };
   }, [handleKeyup, handleBackspace, isCorrect, turn]);
 
-  const restGameHandler = () => {
-    console.log('reset')
-    console.log(resetGame)
-    console.log(lang)
-  }
+
 
   return (
     <div>
@@ -53,12 +49,12 @@ export default function Wordle({ solution, lang, resetGame }) {
           turn={turn}
           solution={solution}
           lang={lang}
-          restartHandler={restGameHandler}
+          restartHandler={log}
         />
       )}
       {/* <h1 className="basic-container_title"> React Wordle Clone</h1> */}
 
-      {/* <p> Solution is: {solution}</p> */}
+      <p> Solution is: {solution}</p>
       <Grid
         currentGuess={currentGuess}
         guesses={guesses}

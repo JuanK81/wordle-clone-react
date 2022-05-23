@@ -1,15 +1,15 @@
 import Button from './Button';
 
-const Modal = ({ isCorrect, turn, solution, lang, restartHandler }) => {
-  let guesses = '';
+const Modal = ({ isCorrect, turn, solution, lang }) => {
+  let guessesTxt = '';
   let intentos = '';
   let textBtn = '';
 
   if (turn > 1) {
-    guesses = 'gueses.';
+    guessesTxt = 'gueses.';
     intentos = 'intentos.';
   } else {
-    guesses = 'guess.';
+    guessesTxt = 'guess.';
     intentos = 'intento.';
   }
 
@@ -19,9 +19,9 @@ const Modal = ({ isCorrect, turn, solution, lang, restartHandler }) => {
     textBtn = 'Jugar otra';
   }
 
-  // const restartHandler = () => {
-  //   window.location.reload(false);
-  // };
+  const restartHandler = () => {
+    // window.location.reload(false);
+  };
 
   return (
     <div className="modal">
@@ -35,7 +35,7 @@ const Modal = ({ isCorrect, turn, solution, lang, restartHandler }) => {
             {lang === 'en'
               ? 'You found the solution in'
               : 'Encontraste la solución en'}{' '}
-            {turn} {lang === 'en' ? guesses : intentos}
+            {turn} {lang === 'en' ? guessesTxt : intentos}
           </p>
           <Button onClick={restartHandler} text={textBtn} />
         </div>
