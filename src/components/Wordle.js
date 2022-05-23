@@ -56,7 +56,7 @@ export default function Wordle({ solution, lang }) {
       )}
       {/* <h1 className="basic-container_title"> React Wordle Clone</h1> */}
 
-      <p> Solution is: {solution}</p>
+      {/* <p> Solution is: {solution}</p> */}
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypad usedKeys={usedKeys} lang={lang} />
     </div>
