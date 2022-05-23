@@ -1,6 +1,11 @@
 import Button from './Button';
 
-const Modal = ({ isCorrect, turn, solution, lang }) => {
+const Modal = ({ isCorrect, 
+  turn, 
+  solution, 
+  lang,
+  //  modalHandler
+  }) => {
   let guessesTxt = '';
   let intentos = '';
   let textBtn = '';
@@ -14,13 +19,14 @@ const Modal = ({ isCorrect, turn, solution, lang }) => {
   }
 
   if (lang === 'en') {
-    textBtn = 'Try again';
+    textBtn = 'close';
   } else {
-    textBtn = 'Jugar otra';
-  }
+    textBtn = 'cerrar';
+  };
+
 
   const restartHandler = () => {
-    // window.location.reload(false);
+    window.location.reload(false);
   };
 
   return (

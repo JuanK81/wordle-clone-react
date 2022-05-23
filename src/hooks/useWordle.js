@@ -135,7 +135,18 @@ const useWordle = (solution) => {
       return;
     }
   };
-  const log = () => console.log('something!')
+
+
+
+  // const gameOverHandler = () => {
+
+  //   setTurn(0);
+  //   setCurrentGuess('');
+  //   setGuesses([...Array(6)]);
+  //   setHistory([]);
+  //   setIsCorrect(null);
+  //   setUsedKeys({});
+  // };
 
   return {
     turn,
@@ -145,7 +156,7 @@ const useWordle = (solution) => {
     handleKeyup,
     handleBackspace,
     usedKeys,
-    log
+    // gameOverHandler,
   };
 };
 
