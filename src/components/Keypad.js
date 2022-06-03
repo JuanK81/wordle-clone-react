@@ -15,10 +15,8 @@ const Keypad = ({ usedKeys, lang }) => {
         //     setLetters(json);
         //   });
           if ( lang === 'en') {
-      console.log('en', db.lettersEn);
       setLetters(db.lettersEn);
     } else {
-      console.log('es', db.lettersEs);
       setLetters(db.lettersEs);
     }
     }, [lang]);
