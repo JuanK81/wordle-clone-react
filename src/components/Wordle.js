@@ -38,11 +38,6 @@ export default function Wordle({ solution, lang }) {
     };
   }, [handleKeyup, handleBackspace, isCorrect, turn]);
 
-  // const modalHandler = () => {
-  //   console.log('eeesto');
-  //   setShowModal(false)
-  // };
-
   return (
     <div>
       {showModal && (
@@ -51,10 +46,8 @@ export default function Wordle({ solution, lang }) {
           turn={turn}
           solution={solution}
           lang={lang}
-          // modalHandler={modalHandler}
         />
       )}
-      {/* <h1 className="basic-container_title"> React Wordle Clone</h1> */}
 
       {/* <p> Solution is: {solution}</p> */}
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />

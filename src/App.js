@@ -22,13 +22,7 @@ function App() {
         }
 
         const responseData = await response.json();   
-        console.log(
-          responseData.body.Word.normalize('NFD').replace(
-            /[\u0300-\u036f]/g,
-            ''
-          )
-        );
-
+        
         setSolution(
           responseData.body.Word.normalize('NFD').replace(
             /[\u0300-\u036f]/g,
@@ -68,7 +62,6 @@ function App() {
           console.log(error);
         });
     }
-
 
     
   }, [lang, setLang]);
